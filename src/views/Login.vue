@@ -1,9 +1,8 @@
 <template>
-  <v-container>
-<!--
--->
+  <v-container fill-height>
     <v-card
-      max-width="600"
+      width="600"
+      class="mx-auto"
     >
       <form>
         <v-app-bar
