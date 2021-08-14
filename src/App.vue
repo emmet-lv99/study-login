@@ -24,6 +24,7 @@
             v-for="item in items"
             :key="item.title"
             link
+            router :to="{name: item.title}"
         >
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
@@ -54,9 +55,9 @@ export default {
     drawer: false,
 
     items: [
-      { title: 'Home', icon: 'mdi-view-dashboard' },
-      { title: 'Login', icon: 'mdi-image' },
-      { title: 'MyInfo', icon: 'mdi-help-box' },
+      { title: 'Home', icon: 'mdi-view-dashboard'},
+      { title: 'Login', icon: 'mdi-image'},
+      { title: 'MyInfo', icon: 'mdi-help-box'},
     ],
     right: null,
   }),
