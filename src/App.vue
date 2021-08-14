@@ -25,6 +25,7 @@
             :key="item.title"
             link
             router :to="{name: item.title}"
+            exact
         >
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
@@ -57,7 +58,7 @@ export default {
     items: [
       { title: 'Home', icon: 'mdi-view-dashboard'},
       { title: 'Login', icon: 'mdi-image'},
-      { title: 'MyInfo', icon: 'mdi-help-box'},
+      { title: 'Myinfo', icon: 'mdi-help-box'},
     ],
     right: null,
   }),
