@@ -1,10 +1,14 @@
 <template>
   <v-container fill-height >
     <v-layout column wrap align-content-center justify-center>
-      <v-alert type="success">
+      <v-alert
+          v-if="isSuccess"
+          type="success">
         I'm a success alert.
       </v-alert>
-      <v-alert type="error">
+      <v-alert
+          v-if="isErr"
+          type="error">
         I'm an error alert.
       </v-alert>
 
@@ -20,7 +24,7 @@
 
           <form>
             <v-text-field
-                v-model="name"
+                v-model="email"
                 :rules="rules.name"
                 label="First name"
                 required
@@ -39,7 +43,10 @@
             <div class="pt-10">
               <v-btn
                   class="mr-4"
-                  @click="submit"
+                  @click="login({
+                    email: email,
+                    password: password
+                  })"
               >
                 Login
               </v-btn>
@@ -57,13 +64,13 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {mapState, mapActions} from 'vuex'
 
 export default {
 
   name: "Login.vue",
   data: () => ({
-    name: '',
+    email: '',
     password: '',
     show1: false,
     rules: {
@@ -73,12 +80,10 @@ export default {
     },
   }),
   computed: {
-    ...mapState(['allUsers'])
+    ...mapState(['allUsers', 'isSuccess', 'isErr'])
   },
   methods: {
-    submit () {
-      console.log(this.allUsers)
-    },
+    ...mapActions(['login']),
     clear () {
       console.log(456)
     },
